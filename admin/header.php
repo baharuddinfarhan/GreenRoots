@@ -12,6 +12,14 @@ if(!isset($_SESSION['user'])) {
 	header('location: login.php');
 	exit;
 }
+
+/* ========================
+   FETCH BASIC SETTINGS FOR FAVICON
+======================== */
+$statement = $pdo->prepare("SELECT favicon FROM tbl_settings WHERE id=1");
+$statement->execute();
+$row = $statement->fetch(PDO::FETCH_ASSOC);
+$favicon = $row ? $row['favicon'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +44,9 @@ if(!isset($_SESSION['user'])) {
 	<link rel="stylesheet" href="css/on-off-switch.css"/>
 	<link rel="stylesheet" href="css/summernote.css">
 	<link rel="stylesheet" href="style.css">
+
+	<!-- ✅ Favicon -->
+	<link rel="icon" type="image/png" href="../assets/uploads/<?php echo htmlspecialchars($favicon); ?>">
 
 </head>
 

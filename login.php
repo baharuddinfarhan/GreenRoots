@@ -38,6 +38,7 @@ if(isset($_POST['form1'])) {
                     $error_message .= "Sorry! Your account is inactive. Please contact administrator.".'<br>';
                 } else {
                     $_SESSION['customer'] = $row;
+                    $_SESSION['user_id'] = $row['cust_id'];  
                     header("location: ".BASE_URL."dashboard.php");
                 }
             }
