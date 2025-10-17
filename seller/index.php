@@ -3,6 +3,15 @@
 <section class="content-header">
 	<h1>Dashboard</h1>
 </section>
+<?php
+// Check if customer is logged in
+if(!isset($_SESSION['customer'])) {
+    // Not logged in → redirect to login with redirect back to seller page
+    header("Location: ../login.php?redirect=index.php");
+    exit;
+}
+?>
+
 
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_category");
@@ -175,5 +184,6 @@ $statement->execute(array('Completed'));
 		  </div>
 		  
 </section>
+
 
 <?php require_once('footer.php'); ?>
