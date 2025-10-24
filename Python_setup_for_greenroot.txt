@@ -1,0 +1,120 @@
+---Step-1---
+
+1. Download and install Python 3.10 or 3.11
+
+2. 	Go to ****https://www.python.org/downloads/release/python-3100/**** (for 3.10) 
+	or ****https://www.python.org/downloads/release/python-3110/**** (for 3.11)
+
+3. Download Windows installer
+
+---Step-2---
+
+1. After download while installing - Run it and make sure to check “Add Python to PATH”
+	***If you do not add python to path your python script might not work properly then the AI model won't work***
+
+2. Finish installation
+
+---Step-3--- 
+
+1. Verify the new Python installation in VS Code terminal
+	
+	python3.10 --version
+	or
+	python3.11 --version
+
+2. If that doesn’t work, try:
+
+	py -3.10 --version
+	or
+	py -3.11 --version
+
+---Step-4--- 
+
+1. Create a new virtual environment with the correct Python
+
+	***Use one of these commands depending on your installed Python version***
+
+	python3.10 -m venv mango-env
+	or
+	python3.11 -m venv mango-env
+
+
+2. If those don’t work, try:
+
+	py -3.10 -m venv mango-env
+	or
+	py -3.11 -m venv mango-env
+
+
+Awesome! Once you’ve successfully **activated your virtual environment**, here’s what to do next in your VS Code terminal:
+PowerShell might block script execution due to its **Execution Policy** settings. You need to allow running local scripts by changing the policy.
+
+Here’s how to fix it in your VS Code terminal (PowerShell):
+
+---Step-5---  
+
+Open VS Code **as Administrator**
+
+* Close VS Code
+* Right-click VS Code icon → **Run as administrator**
+
+---Step-6--- 
+
+Change Execution Policy
+
+Run this command to allow running local signed scripts:
+
+```powershell
+	Set-ExecutionPolicy RemoteSigned
+```
+	* When prompted, type `Y` and press Enter.
+
+---Step-7--- 
+
+Close VS Code and reopen normally (no admin)
+
+
+---Step-8--- 
+
+Activate your virtual environment again:
+
+```powershell
+	.\mango-env\Scripts\Activate.ps1
+```
+
+### Alternative if you don’t want to change policy:
+
+Run the activate batch script in **Command Prompt** instead:
+
+```cmd
+	.\mango-env\Scripts\activate.bat
+```
+
+---Step-9---
+ 
+*** When all the initial set up is done now it's time to install necessary pyhton libraries ***
+
+### 1. Upgrade pip and essential tools
+
+```bash
+	python -m pip install --upgrade pip setuptools wheel
+```
+
+### 2. Install required packages
+
+```bash
+	pip install tensorflow numpy opencv-python joblib
+```
+
+**********Verify TensorFlow installed correctly********
+
+```bash
+	python -c "import tensorflow as tf; print(tf.__version__)"
+```
+	***You should see the TensorFlow version printed without any errors.***
+
+```bash
+	pip install scikit-learn
+```
+
+>>>>>>>>>> After Installin Everything, Now the AI feature will work properly on your device.<<<<<<<<<<
